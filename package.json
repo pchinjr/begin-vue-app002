@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@architect/sandbox": "^1.7.0",
-    "@begin/data": "latest",
+    "@begin/data": "^1.1.8-RC.3",
     "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-plugin-eslint": "^3.11.0",
     "@vue/cli-plugin-unit-mocha": "^3.11.0",
