@@ -1,9 +1,9 @@
-exports.handler = async function http (req) {
+exports.handler = async function http(req) {
   console.log('Begin API called')
   return {
-    headers: {'content-type': 'application/json; charset=utf8'},
+    headers: { 'content-type': 'application/json; charset=utf8' },
     body: JSON.stringify({
-      message: 'Hello from your Begin API!'
+      message: 'you find this in src/http/get-api'
     })
   }
 }
