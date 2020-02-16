@@ -1,7 +1,7 @@
 let test = require('tape')
 let tiny = require('tiny-json-http')
 let sandbox = require('@architect/sandbox')
-let url = 'http://localhost:6666'
+let url = 'http://localhost:9999'
 
 /**
  * Sandbox / http test
@@ -21,23 +21,23 @@ test('Start sandbox', async t => {
 
 test('get / (continuation-passing style)', t => {
   t.plan(1)
-  tiny.get({url},
-  function win (err, result) {
-    if (err) {
-      t.fail(err)
-    } else {
-      t.ok(result, 'Got result', console.log(result.body.toString().substring(0,50) + '...'))
-    }
-  })
+  tiny.get({ url },
+    function win(err, result) {
+      if (err) {
+        t.fail(err)
+      } else {
+        t.ok(result, 'Got result', console.log(result.body.toString().substring(0, 50) + '...'))
+      }
+    })
 })
 
 test('get / (promise style)', t => {
   t.plan(1)
-  tiny.get({url})
-    .then(function win (result) {
-      t.ok(result, 'Got result:', console.log(result.body.toString().substring(0,50) + '...'))
+  tiny.get({ url })
+    .then(function win(result) {
+      t.ok(result, 'Got result:', console.log(result.body.toString().substring(0, 50) + '...'))
     })
-    .catch(function fail (err) {
+    .catch(function fail(err) {
       t.fail(err)
     })
 })
@@ -45,22 +45,22 @@ test('get / (promise style)', t => {
 test('get / (async/await style)', async t => {
   t.plan(1)
   try {
-    let result = await tiny.get({url})
-    t.ok(result, 'Got result:', console.log(result.body.toString().substring(0,50) + '...'))
+    let result = await tiny.get({ url })
+    t.ok(result, 'Got result:', console.log(result.body.toString().substring(0, 50) + '...'))
   } catch (err) {
     t.fail(err)
   }
 })
 
-test('Shut down sandbox', t=> {
+test('Shut down sandbox', t => {
   t.plan(1)
   end()
-  tiny.get({url},
-  function win (err, result) {
-    if (err) {
-      t.equal(err.code, 'ECONNREFUSED', 'Sandbox succssfully shut down')
-    } else {
-      t.fail('Sandbox did not shut down')
-    }
-  })
+  tiny.get({ url },
+    function win(err, result) {
+      if (err) {
+        t.equal(err.code, 'ECONNREFUSED', 'Sandbox succssfully shut down')
+      } else {
+        t.fail('Sandbox did not shut down')
+      }
+    })
 })
