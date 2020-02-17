@@ -7,7 +7,7 @@ exports.handler = async function http(req) {
   const key = req.pathParameters.uuid
 
   const table = 'posts'
-  const res = await data.destroy({ table, key })
+  await data.destroy({ table, key })
 
   return {
     statusCode: 204,
