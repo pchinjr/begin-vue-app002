@@ -8,7 +8,6 @@ exports.handler = async function http(req) {
 
   const table = 'posts'
   const res = await data.destroy({ table, key })
-  console.log(res)
 
   return {
     statusCode: 204,
