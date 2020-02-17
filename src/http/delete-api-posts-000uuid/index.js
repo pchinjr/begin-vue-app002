@@ -1,17 +1,16 @@
-// system imports
-// 3rd party imports
-const data = require('@begin/data')
-// local imports
+// Enable secure sessions, express-style middleware, and more:
+// https://docs.begin.com/en/functions/http/
+//
+// let begin = require('@architect/functions')
 
 exports.handler = async function http(req) {
-  const key = req.pathParameters.uuid
-
-  const table = 'posts'
-  const res = await data.destroy({ table, key })
-  console.log(res)
-
+  console.log(req)
   return {
-    statusCode: 204,
-    body: ''
+    status: 200,
+    headers: {
+      'content-type': 'application/json; charset=utf8',
+      'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
+    },
+    body: JSON.stringify({ok: true})
   }
 }
