@@ -2,6 +2,7 @@
   "name": "begin-app-post-api-posts",
   "dependencies": {
     "@architect/functions": "latest",
-    "@begin/data": "latest"
+    "@begin/data": "latest",
+    "uuid": "^3.4.0"
   }
 }
