@@ -8,6 +8,7 @@ folder dist
 get /api
 get /api/posts
 get /
+post /api/posts
 
 @tables
 data
