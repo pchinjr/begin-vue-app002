@@ -1,16 +1,18 @@
-// Enable secure sessions, express-style middleware, and more:
-// https://docs.begin.com/en/functions/http/
-//
-// let begin = require('@architect/functions')
+// system imports
+// 3rd party imports
+const data = require('@begin/data')
+// local imports
+const helpers = require('../../helpers')
 
 exports.handler = async function http(req) {
-  console.log(req)
+  const key = req.pathParameters.uuid
+  const post = JSON.parse(helpers.parse64(req.body))
+
+  const table = 'posts'
+  const result = await data.set({ table, key, post })
+
   return {
-    status: 200,
-    headers: {
-      'content-type': 'application/json; charset=utf8',
-      'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
-    },
-    body: JSON.stringify({ok: true})
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify(result),
   }
 }
