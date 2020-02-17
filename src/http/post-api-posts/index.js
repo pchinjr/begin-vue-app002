@@ -1,23 +1,15 @@
-// system imports
-// 3rd party imports
-const data = require('@begin/data')
-const uuid = require('uuid/v4')
-// local imports
-const helpers = require('../../helpers')
+// Enable secure sessions, express-style middleware, and more:
+// https://docs.begin.com/en/functions/http/
+//
+// let begin = require('@architect/functions')
+
 exports.handler = async function http(req) {
-  const post = JSON.parse(helpers.parse64(req.body))
-
-  const table = 'posts'
-  const key = uuid()
-
-  let result = await data.set({
-    table,
-    key,
-    post
-  })
-
+  console.log(req)
   return {
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(result),
+    status: 302,
+    headers: {
+      'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
+    },
+    location: '/'
   }
 }
