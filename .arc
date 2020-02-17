@@ -9,6 +9,7 @@ get /api
 get /api/posts
 get /
 post /api/posts
+put /api/posts/:uuid
 
 @tables
 data
