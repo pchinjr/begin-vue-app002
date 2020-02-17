@@ -10,6 +10,7 @@ get /api/posts
 get /
 post /api/posts
 put /api/posts/:uuid
+delete /api/posts/:uuid
 
 @tables
 data
