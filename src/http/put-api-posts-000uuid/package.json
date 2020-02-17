@@ -1,0 +1,7 @@
+{
+  "name": "begin-app-put-api-posts-000uuid",
+  "dependencies": {
+    "@architect/functions": "latest",
+    "@begin/data": "latest"
+  }
+}
