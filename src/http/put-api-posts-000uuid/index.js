@@ -2,10 +2,7 @@
 // 3rd party imports
 const data = require('@begin/data')
 // local imports
-
-const parse64 = (input) => {
-  return Buffer.from(input, 'base64').toString()
-}
+const { parse64 } = require('@architect/shared/helpers')
 
 exports.handler = async function http(req) {
   const key = req.pathParameters.uuid
