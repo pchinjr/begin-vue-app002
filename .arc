@@ -1,12 +1,14 @@
+# Warning! Do Not Edit
+# --------------------
+# This is a generated file and will be overwritten
+
 @app
-dimsum-af6
+art-0dr
 
 @static
 folder dist
-
 @http
 get /api
-
 get /api/posts
 post /api/posts
 put /api/posts/:uuid
