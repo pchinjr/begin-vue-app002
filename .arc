@@ -3,7 +3,7 @@
 # This is a generated file and will be overwritten
 
 @app
-art-0dr
+invent-lj1
 
 @static
 folder dist
